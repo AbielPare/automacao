@@ -22,43 +22,43 @@ print("--------------------------")
 input("Clicar no ENTER APENAS quando estiver na tela dos planos")
 
 def inativar_plano_atual():
-    # 1. Abre o campo de Status
+    # ordem 1. Abre o campo de Status
     campo_status = WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.XPATH, "//span[contains(text(), 'Ativo')] | //mat-select | //*[contains(text(), 'Status')]/following::div[1]"))
     )
     campo_status.click()
     time.sleep(0.6)
     
-    # 2. Clica na opção 'Inativo'
+    # ordem 2. Clica na opção 'Inativo'
     opcao_inativo = WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.XPATH, "//mat-option//span[contains(text(), 'Inativo')] | //*[text()='Inativo']"))
     )
     opcao_inativo.click()
     time.sleep(0.6)
     
-    # 3. Clica no botão ALTERAR azul escuro (do topo da página)
+    # ordem 3. Clica no botão ALTERAR azul escuro (do topo da página)
     botao_alterar_topo = WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/main/div/div/div[2]/div/button[2]'))
     )
     botao_alterar_topo.click()
     time.sleep(0.8)
     
-    # 4. Confirma clicando no botão ALTERAR dentro do Modal
+    # ordem4. Confirma clicando no botão ALTERAR dentro do Modal
     botao_confirmar_modal = WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div[4]/div/div/div[2]/button[2]'))
     )
     botao_confirmar_modal.click()
-    print("💾 Alteração salva com sucesso!")
+    print(" Alteração salva")
     time.sleep(1.8)
     
-    # 5. Clica no botão VOLTAR para retornar à lista de planos
+    # 5. ordem Clica no botão VOLTAR para retornar à lista de planos
     botao_voltar = WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.XPATH, '//*[@id="app"]/div/main/div/div/div[2]/div/button[1]'))
     )
     botao_voltar.click()
     time.sleep(1.8)
 
-# --- LOOP PRINCIPAL PELAS PÁGINAS ---
+# LOOP PRINCIPAL PELAS PÁGINAS
 for pagina in range(1, 6):
     print(f"\nAnalisando a Página {pagina} da lista...")
     time.sleep(2)
@@ -85,7 +85,7 @@ for pagina in range(1, 6):
             
         except Exception as e:
             # Se a linha sumiu ou deu erro, ele avança para tentar a próxima linha sem quebrar o código
-            print(f"⚠️ Erro ou linha já processada no índice {indice + 1}. Pulando para o próximo...")
+            print(f"Erro ou linha já processada no índice {indice + 1}. Pulando para o próximo...")
             continue
             
     # SÓ DEPOIS de passar por todas as linhas da página ele tenta avançar
@@ -99,4 +99,4 @@ for pagina in range(1, 6):
         except Exception:
             input(f"Não achei o botão automático. Clique manualmente na página {proxima} no Chrome e dê ENTER aqui...")
 
-print("\nrTodos planos inativados!")
+print("\nTodos planos inativados!")

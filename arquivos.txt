@@ -1,2 +1,2 @@
 flatpak run com.google.Chrome --remote-debugging-port=9222 --user-data-dir="/tmp/selenium_profile" 
-rodar isso no terminal para que o google secundario abra na tela, para o selenium consiga mexer mele na automação
+rodar isso no terminal para que o google secundario abra na tela, para o selenium consiga mexer nele na automação
