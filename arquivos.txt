@@ -1,2 +1,23 @@
-flatpak run com.google.Chrome --remote-debugging-port=9222 --user-data-dir="/tmp/selenium_profile" 
-rodar isso no terminal para que o google secundario abra na tela, para o selenium consiga mexer nele na automação
+1. Abrir o terminal e rodar
+# cd ~/Documentos/automação/automacao
+
+2. Ativar o ambiente virtual
+# source ../env/bin/activate
+
+ou, se estiver dentro da pasta que contém o env:
+
+# source env/bin/activate
+
+Você saberá que deu certo quando aparecer:
+
+(env) vicensopolanociotta@...
+
+3. e rodar para entrar no google:
+flatpak run com.google.Chrome --remote-debugging-port=9222 --user-data-dir="/tmp/selenium_profile"
+
+
+terminal do vscode:
+
+cd ~/Documentos/automação/automacao
+source env/bin/activate
+python3 automacao.py
